@@ -3,5 +3,5 @@ FROM crossflowai/fate_base:${FATE_VERSION}-release
 ENV FATE_VERSION 1.6.0
 WORKDIR /
 WORKDIR /data/projects/fate/python
-ENV PYTHONPATG /data/projects/fate/python
+ENV PYTHONPATH /data/projects/fate/python
 CMD ["python", "fate_flow/fate_flow_server.py"]
