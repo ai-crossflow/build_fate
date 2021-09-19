@@ -14,7 +14,7 @@ COPY files/ /data/projects/fate/
 COPY start_*.sh requirements.txt/ /
 ENV PYTHONPATH /data/projects/fate/eggroll/python:/data/projects/fate/python
 ENV EGGROLL_HOME /data/projects/fate/eggroll
-RUN ln -sf /tini /usr/bin/tini
+RUN ln -s /usr/bin/tini /tini
 WORKDIR /data/projects/fate/eggroll
 ENTRYPOINT ["/usr/bin/tini", "--"]
 CMD ["/bin/sh"]
