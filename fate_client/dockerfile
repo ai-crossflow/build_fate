@@ -3,7 +3,7 @@ FROM crossflowai/fate_base:${FATE_VERSION}-release
 ENV FATE_VERSION 1.6.0
 WORKDIR /
 RUN mkdir /Examples
-RUN pip install jupyter && pip cache purge
+RUN pip install jupyter requests_toolbelt>=0.9.1 click>=7.1.2 poetry>=0.12 loguru>=0.5.1 && pip cache purge
 COPY flow pipeline /usr/local/bin/
 WORKDIR /data/projects/fate
 ENV PYTHONPATH /data/projects/fate/python:/data/projects/fate/python/fate_client
