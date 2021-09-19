@@ -2,5 +2,4 @@ ARG FATE_VERSION=1.6.0
 FROM openjdk:11-jre-slim
 COPY files/ /data/projects/fate/fateboard/
 WORKDIR /data/projects/fate/fateboard
-CMD ["java", "-Dspring.config.location=conf/application.properties", "-Dssh_config_file=conf", "-Xmx2048m", "-Xms2048m", "-XX:+PrintGCDetails", "-Xloggc:gc.log", "-XX:+HeapDumpOnOutOfMemoryError", "-jar", "fateboard.jar"]
-
+CMD ["java", "-Dspring.config.location=conf/application.properties", "-Dssh_config_file=conf", "-Xmx2048m", "-Xms2048m", "-XX:+HeapDumpOnOutOfMemoryError", "-jar", "fateboard.jar"]
