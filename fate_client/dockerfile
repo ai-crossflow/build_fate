@@ -6,6 +6,5 @@ RUN mkdir /Examples
 RUN pip install jupyter && pip cache purge
 COPY flow pipeline /usr/local/bin/
 WORKDIR /data/projects/fate
-ENV PYTHONPATG /data/projects/fate/python
+ENV PYTHONPATH /data/projects/fate/python
 CMD ["/bin/sh", "-c", "flow init -c conf/service_conf.yaml && pipeline init -c conf/pipeline_conf.yaml && jupyter notebook --ip=0.0.0.0 --port=20000 --allow-root --debug --NotebookApp.notebook_dir='/Examples' --no-browser --NotebookApp.token='' --NotebookApp.password=''"]
-
