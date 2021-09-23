@@ -1,0 +1,9 @@
+FROM node:14-alpine AS builder
+ENV FC_VER v1.4.0
+RUN apk add git
+RUN git clone -b ${FC_VER} --depth 1 https://github.com/FederatedAI/FATE-Cloud.git
+RUN cd FATE-Cloud/front-end/cloud-manager-front-end && npm install && npm run build
+RUN cd FATE-Cloud/front-end/fate-manager-front-end && npm install && npm run build
+
+#FROM node:14-alpine 
+#COPY --from=builder FATE-Cloud/front-end/fate-manager-front-end
