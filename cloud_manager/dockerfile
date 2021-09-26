@@ -1,0 +1,4 @@
+FROM openjdk:11-jre-slim
+ENV FC_VER 1.4.0
+COPY files/ /
+CMD ["java", "-version"]

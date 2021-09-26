@@ -1,0 +1,10 @@
+FROM maven:3-jdk-8 AS builder
+ENV FC_VER v1.4.0
+RUN apt-get update && apt-get -y install git
+RUN git clone -b ${FC_VER} --depth 1 https://github.com/FederatedAI/FATE-Cloud.git
+RUN cd FATE-Cloud/cloud-manager && mvn clean package
+
+FROM openjdk:11-jre-slim
+ENV FC_VER 1.4.0
+COPY --from=builder /FATE-Cloud/cloud-manager/target/cloud-manager-${FC_VER}.jar /
+CMD ["java", "-version"]
