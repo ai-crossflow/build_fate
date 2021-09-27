@@ -11,8 +11,8 @@ ENV ZOO_DATA_LOG_DIR=/new_datalog
 ENV ZOO_LOG_DIR=/new_logs
 RUN set -eux && \
     groupadd -r zookeeper --gid=1001 && \
-    mkdir -p "$ZOO_DATA_DIR" "$ZOO_DATA_LOG_DIR" "$ZOO_LOG_DIR" && \
     useradd -r -g zookeeper --uid=1001 zookeeper && \
+    mkdir -p "$ZOO_DATA_DIR" "$"
     chown -R zookeeper:zookeeper "/apache-zookeeper-${ZK_VERSION}-bin" "$ZOO_DATA_LOG_DIR" "$ZOO_DATA_DIR" "$ZOO_CONF_DIR" "$ZOO_LOG_DIR"
 VOLUME ["$ZOO_DATA_DIR", "$ZOO_DATA_LOG_DIR", "$ZOO_LOG_DIR"]
 COPY entrypoint.sh run.sh /

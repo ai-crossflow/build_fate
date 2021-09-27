@@ -1,6 +1,0 @@
-ARG FATE_SERVING_VERSION=2.0.4
-FROM openjdk:11-jre-slim
-COPY files/ /data/projects/fate/
-WORKDIR /data/projects/fate
-CMD ["java", "-version"]
-

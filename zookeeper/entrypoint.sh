@@ -2,8 +2,6 @@
 
 set -e
 
-chown -R zookeeper "$ZOO_DATA_DIR" "$ZOO_DATA_LOG_DIR" "$ZOO_LOG_DIR"
-
 # Generate the config only if it doesn't exist
 if [[ ! -f "$ZOO_CONF_DIR/zoo.cfg" ]]; then
     CONFIG="$ZOO_CONF_DIR/zoo.cfg"
@@ -35,11 +33,6 @@ if [[ ! -f "$ZOO_CONF_DIR/zoo.cfg" ]]; then
     for cfg_extra_entry in $ZOO_CFG_EXTRA; do
         echo "$cfg_extra_entry" >> "$CONFIG"
     done
-fi
-
-# Write myid only if it doesn't exist
-if [[ ! -f "$ZOO_DATA_DIR/myid" ]]; then
-    echo "${ZOO_MY_ID:-1}" > "$ZOO_DATA_DIR/myid"
 fi
 
 exec "$@"
