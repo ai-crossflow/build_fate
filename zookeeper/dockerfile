@@ -1,0 +1,4 @@
+ARG ZK_VERSION=3.7.0
+FROM zookeeper:${ZK_VERSION}
+COPY entrypoint.sh run.sh /
+CMD ["/run.sh"]

@@ -1,6 +1,5 @@
 ARG FATE_SERVING_VERSION=2.0.4
 FROM crossflowai/serving-base:${FATE_SERVING_VERSION}-release
-WORKDIR /data/projects/fate/fate/serving-server
+WORKDIR /data/projects/fate/serving-server
 CMD ["java", "-version"]
-
 
