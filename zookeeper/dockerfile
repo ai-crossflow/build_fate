@@ -6,7 +6,9 @@ ENV ZK_VERSION=3.7.0
 #RUN chmod -R 777 $ZOO_DATA_LOG_DIR
 #RUN chmod -R 777 $ZOO_LOG_DIR
 RUN deluser zookeeper
-ENV ZOO_DATA_DIR=/new_data
+ENV ZOO_VOLUME_DIR=/bitnami/zookeeper
+ENV ZOO_DATA_DIR=${ZOO_VOLUME_DIR}/data
+#ENV ZOO_DATA_DIR=/new_data
 ENV ZOO_DATA_LOG_DIR=/new_datalog
 ENV ZOO_LOG_DIR=/new_logs
 RUN set -eux && \
